@@ -13,6 +13,7 @@ class GitblameCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         # Create a temp file for displaying the content of our response.
         tab = sublime.active_window().new_file()
+        tab.set_scratch(True)
         # Get the file path of the current view.
         filepath = self.view.file_name()
         # Check if are in a temporary file.
