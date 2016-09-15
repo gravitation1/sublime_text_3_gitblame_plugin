@@ -52,5 +52,4 @@ class GitblameCommand(sublime_plugin.TextCommand):
             contents = blame.stdout.read().decode('utf-8')
             tab.insert(edit, 0, contents)
         else:
-            pass
             tab.insert(edit, 0, 'Cannot `git blame` on temporary files')
