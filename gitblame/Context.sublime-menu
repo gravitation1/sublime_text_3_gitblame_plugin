@@ -1,0 +1,7 @@
+[
+	{
+		"id" : "gitblame",
+		"caption" : "Blame",
+		"command" : "gitblame"
+	}
+]

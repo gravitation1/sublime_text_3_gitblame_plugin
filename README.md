@@ -1,2 +1,6 @@
-# sublime_text_3_gitblame_plugin
-Plugin for Sublime Text 3 that allows you to run git blame on current text selection
+# Sublime Text 3 `git blame` Plugin
+
+Plugin for Sublime Text 3 that allows you to run `git blame` on current text selection.
+
+## Usage
+Select text area(s), right-click, then select `Blame`. Alternatively, select text area(s) then hit `super+shift+b`.
