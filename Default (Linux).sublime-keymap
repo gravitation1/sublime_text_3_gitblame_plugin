@@ -1,5 +1,5 @@
 [
-	{ 
+	{
 		"keys": [ "super+ctrl+b" ],
 		"command": "gitblame"
 	}
