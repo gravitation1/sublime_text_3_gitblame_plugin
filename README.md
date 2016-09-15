@@ -10,4 +10,5 @@ Clone this repository into your Sublime Text 3 Packages directory.
 
 ### OSX
 `cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/`
+
 `git clone git@github.com:gravitation1/sublime_text_3_gitblame_plugin.git gitblame`
