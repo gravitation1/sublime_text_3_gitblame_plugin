@@ -25,7 +25,18 @@ class GitblameCommand(sublime_plugin.TextCommand):
                 # Get selection start and end rows, and compensate for zero-based
                 # index (git blame indexes lines starting at 1).
                 start_row = self.view.rowcol(selection.begin())[0] + 1
-                end_row = self.view.rowcol(selection.end())[0] + 1
+                if selection.empty():
+                    end_row = start_row
+                else:
+                    # Compensate for the fact that git blame does not work for
+                    # blaming a range that contains the trailing newline of a
+                    # file, so we will just decrement the end cursor for the
+                    # given selection. Since git blames on lines (rather than
+                    # by characters), this is ok.
+                    #
+                    # TODO: Fix issue when blaming the trailing newline with an
+                    #       empty selection.
+                    end_row = self.view.rowcol(selection.end() - 1)[0] + 1
                 # Add start and end rows to the ranges we will git blame on.
                 line_ranges.extend([ '-L', '%s,%s' % (start_row, end_row) ])
             # Get directory to run git commands from.
@@ -40,4 +51,5 @@ class GitblameCommand(sublime_plugin.TextCommand):
             contents = blame.stdout.read().decode('utf-8')
             tab.insert(edit, 0, contents)
         else:
+            pass
             tab.insert(edit, 0, 'Cannot `git blame` on temporary files')
