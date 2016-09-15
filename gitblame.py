@@ -7,7 +7,7 @@ import os
 class GitblameCommand(sublime_plugin.TextCommand):
     '''
     Displays the 'git blame' of the current selection(s). Requires git version
-    1.8.5 or above to be installed.
+    1.8.5 or above to be installed and be your $PATH.
     '''
 
     def run(self, edit):
@@ -18,6 +18,7 @@ class GitblameCommand(sublime_plugin.TextCommand):
         filepath = self.view.file_name()
         # Check if are in a temporary file.
         if filepath:
+            tab.set_name('(Blame) %s' % os.path.basename(filepath))
             # Transform the line ranges of the current selections to a format that
             # git blame understands.
             line_ranges = []
