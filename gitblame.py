@@ -44,7 +44,7 @@ class GitblameCommand(sublime_plugin.TextCommand):
             # Get directory to run git commands from.
             git_dir = os.path.dirname(filepath)
             # Construct the git blame command.
-            command = [ 'git', '-C', git_dir, 'blame', filepath ] + line_ranges
+            command = [ 'git', '-C', git_dir, 'blame', '-c', filepath ] + line_ranges
             # Run the git blame command.
             blame = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             # Wait until it completes.
