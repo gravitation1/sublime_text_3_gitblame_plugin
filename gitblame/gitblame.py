@@ -6,7 +6,7 @@ import os
 
 class GitblameCommand(sublime_plugin.TextCommand):
     '''
-    Displays the 'git blame' of the current selection. Requires git version
+    Displays the 'git blame' of the current selection(s). Requires git version
     1.8.5 or above to be installed.
     '''
 
